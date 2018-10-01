@@ -16,8 +16,8 @@ dos votos, fazer um programa em C# que leia o nome do município, a quantidade d
 aptos. Faça uma repetição para essa quantidade de eleitores aptos, identifique qual o candidato
 votado. Ao final do programa, apresentar a porcentagem de votos de cada candidato, qual o
 candidato mais votado e informar se ele terá ou não segundo turno em sua eleição municipal.*/
-            int eleitores,VOTO, numV13 = 0, numV12 = 0, numV17 = 0, numV30 = 0, numV18 = 0;
-            double media12, media13, media17, media30, media18;
+            int eleitores,VOTO, cand1=0, cand2=0, cand3=0;
+            double media1, media2, media3;
             bool check = false;
            
 
@@ -28,84 +28,106 @@ candidato mais votado e informar se ele terá ou não segundo turno em sua elei�
                 if (eleitores <= 0)
                 {
                     Console.Write("O valor digitado é inválido.");
-                    check =true;
+                   
                 }
                 else
                 {
-                    for (int i = 0; i < eleitores; i++) { 
+                    for (int i = 0; i < eleitores; i++) {
+                   
+
                         Console.Write("CANDIDATOS: \n" +
-                        "- [12] Candidato 1 \n" +
-                        "- [13] Candidato 2\n" +
-                        "- [17] Candidato 3\n" +
-                        "- [18] Candidato 4\n" +
-                        "- [30] Canditado 5\n" +
-                        " Digite o seu voto: ");
-                    VOTO = int.Parse(Console.ReadLine());
-                    
-                        if (VOTO == 12)
+                        "- Candidato [1]\n" +
+                        "- Candidato [2]\n" +
+                        "- Candidato [3]\n" +
+                        " Digite o seu voto:");
+
+                        VOTO = int.Parse(Console.ReadLine());
+
+                        if (VOTO <= 0 || VOTO > 3)
                         {
-                            numV12++;
-                        }
-                        else if(VOTO == 13)
-                        {
-                            numV13++;
-                        }
-                        else if(VOTO == 17)
-                        {
-                            numV17++;
-                        }
-                        else if(VOTO == 18)
-                        {
-                            numV18++;
-                        }
-                        else if(VOTO == 30)
-                        {
-                            numV30++;
-                        }
-                        else
-                        {
-                        Console.Write("O valor digitado é inválido.");
+                            Console.Write("O valor digitado é inválido.");
                             i--;
                         }
+                    else
+                    {
+                        switch (VOTO)
+                        {
+                            case 1:
+                                cand1++;
+                                break;
+                            case 2:
+                                cand2++;
+                                break;
+                            case 3:
+                                cand3++;
 
+                                break;
+                        }
+
+                      
                     }
-                media12 = (numV12 * 100) / eleitores;
-                media13 = (numV13 * 100) / eleitores;
-                media17 = (numV17 * 100) / eleitores;
-                media18 = (numV18 * 100) / eleitores;
-                media30 = (numV30 * 100) / eleitores;
-                Console.WriteLine("\n- [12] Candidato 1: " + (numV12 * 100) / eleitores+"%.");
-                Console.WriteLine("\n- [13] Candidato 2: " + (numV13 * 100) / eleitores+"%.");
-                Console.WriteLine("\n- [17] Candidato 3: " + (numV17 * 100) / eleitores+"%.");
-                Console.WriteLine("\n- [18] Candidato 4: " + (numV18 * 100) / eleitores+"%.");
-                Console.WriteLine("\n- [30] Candidato 5: " + (numV30 * 100) / eleitores+"%.");
+                        
+                   
 
 
-                if (media12 > 51  && eleitores>=5)
-                {
-                    Console.Write("/nO candidato vencedor é o Candidato 1.");
-                    Console.Write(" [Não haverá segundo turno.]");
                 }
-                else if (media13 > 51 && eleitores >= 5)
+                media1 = (cand1 * 100) / eleitores;
+                media2 = (cand2 * 100) / eleitores;
+                media3 = (cand3 * 100) / eleitores;
+
+                Console.WriteLine("\nCandidato 1 obteve: "+media1+"% dos votos");
+                Console.WriteLine("\nCandidato 2 obteve: " + media2 + "% dos votos");
+                Console.WriteLine("\nCandidato 3 obteve: " + media3 + "% dos votos\n \n");
+                if (media1 > 51)
                 {
-                    Console.Write("/nO candidato vencedor é o Candidato 2.");
-                    Console.Write(" [Não haverá segundo turno.]");
+                    Console.Write("O Candidato 1 venceu. Não Haverá segundo turno.");
                 }
-                else if (media17 > 51 && eleitores >= 5)
+                else if (media2 > 51)
                 {
-                    Console.Write("/nO candidato vencedor é o Candidato 3.");
-                    Console.Write(" [Não haverá segundo turno.]");
+                    Console.Write("O Candidato 2 venceu. Não Haverá segundo turno.");
                 }
-                else if (media18 > 51 && eleitores >= 5)
+                else if (media3 > 51)
                 {
-                    Console.Write("/nO candidato vencedor é o Candidato 4.");
-                    Console.Write(" [Não haverá segundo turno.]");
+                    Console.Write("O Candidato 3 venceu. Não Haverá segundo turno.");
                 }
-                else if (media30 > 51 && eleitores >= 5)
+                else
                 {
-                    Console.Write("/nO candidato vencedor é o Candidato 5.");
-                    Console.Write(" [Não haverá segundo turno.]");
+                    if(media1 >media2 && media2 >= media3 && eleitores >= 5 )
+                    {
+                        Console.Write("O Candidato 1 venceu. Haverá segundo turno.");
+                    }
+                    if (media2 > media1 && media1 >= media3 && eleitores >= 5)
+                    {
+                        Console.Write("O Candidato 2 venceu. Haverá segundo turno.");
+                    }
+                    if (media3 > media2 && media2 >= media1 && eleitores >= 5)
+                    {
+                        Console.Write("O Candidato 3 venceu. Haverá segundo turno.");
+                    }
+
+                    if (media1 > media2 && media2 >= media3 && eleitores <= 5)
+                    {
+                        Console.Write("O Candidato 1 venceu. Não Haverá segundo turno.");
+                    }
+                    if (media2 > media1 && media1 >= media3 && eleitores <= 5)
+                    {
+                        Console.Write("O Candidato 2 venceu. Não Haverá segundo turno.");
+                    }
+                    if (media3 > media2 && media2 >= media1 && eleitores <= 5)
+
+                    {
+                        Console.Write("O Candidato 3 venceu. Não Haverá segundo turno.");
+                    }
+
                 }
+                
+
+
+
+
+
+
+
 
             }
 
