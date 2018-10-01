@@ -15,7 +15,8 @@ têm segundo turno nas eleições para prefeito caso o primeiro colocado não te
 dos votos, fazer um programa em C# que leia o nome do município, a quantidade de eleitores
 aptos. Faça uma repetição para essa quantidade de eleitores aptos, identifique qual o candidato
 votado. Ao final do programa, apresentar a porcentagem de votos de cada candidato, qual o
-candidato mais votado e informar se ele terá ou não segundo turno em sua eleição municipal.*/
+candidato mais votado e informar se ele terá ou não segundo turno em sua eleição municipal.
+*/
             int eleitores,VOTO, cand1=0, cand2=0, cand3=0;
             double media1, media2, media3;
             bool check = false;
@@ -92,28 +93,28 @@ candidato mais votado e informar se ele terá ou não segundo turno em sua elei�
                 }
                 else
                 {
-                    if(media1 >media2 && media2 >= media3 && eleitores >= 5 )
+                    if(media1 >media2 && media2 >= media3 && eleitores >= 20000 )
                     {
                         Console.Write("O Candidato 1 venceu. Haverá segundo turno.");
                     }
-                    if (media2 > media1 && media1 >= media3 && eleitores >= 5)
+                    if (media2 > media1 && media1 >= media3 && eleitores >= 20000)
                     {
                         Console.Write("O Candidato 2 venceu. Haverá segundo turno.");
                     }
-                    if (media3 > media2 && media2 >= media1 && eleitores >= 5)
+                    if (media3 > media2 && media2 >= media1 && eleitores >= 20000)
                     {
                         Console.Write("O Candidato 3 venceu. Haverá segundo turno.");
                     }
 
-                    if (media1 > media2 && media2 >= media3 && eleitores <= 5)
+                    if (media1 > media2 && media2 >= media3 && eleitores <= 20000)
                     {
                         Console.Write("O Candidato 1 venceu. Não Haverá segundo turno.");
                     }
-                    if (media2 > media1 && media1 >= media3 && eleitores <= 5)
+                    if (media2 > media1 && media1 >= media3 && eleitores <= 20000)
                     {
                         Console.Write("O Candidato 2 venceu. Não Haverá segundo turno.");
                     }
-                    if (media3 > media2 && media2 >= media1 && eleitores <= 5)
+                    if (media3 > media2 && media2 >= media1 && eleitores <= 20000)
 
                     {
                         Console.Write("O Candidato 3 venceu. Não Haverá segundo turno.");
